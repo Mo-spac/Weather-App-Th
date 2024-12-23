@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:weather_app/views/search_view.dart';
 import 'package:weather_app/widgets/weather_info_body.dart';
 
 class HomeView extends StatelessWidget {
@@ -11,7 +12,15 @@ class HomeView extends StatelessWidget {
         title: Text('Weather App'),
         actions: [
           IconButton(
-            onPressed: () {},
+            onPressed: () {
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (context) {
+                    return SearchView();
+                  },
+                ),
+              );
+            },
             icon: Icon(Icons.search),
           ),
         ],
