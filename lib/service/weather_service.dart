@@ -1,4 +1,4 @@
-import 'dart:math';
+import 'dart:developer';
 
 import 'package:dio/dio.dart';
 import 'package:weather_app/models/weather_model.dart';
@@ -23,7 +23,8 @@ class WeatherService {
 
       throw Exception(errorMessage);
     } catch (e) {
-      throw Exception('try later');
+      log('Unexpected error: $e');
+      throw Exception('An unexpected error occurred. Please try again later');
     }
   }
 }

@@ -25,7 +25,7 @@ class WeatherModel {
       maxTemp: json['forecast']['forecastday'][0]['day']['maxtemp_c'],
       minTemp: json['forecast']['forecastday'][0]['day']['mintemp_c'],
       weatherCondition: json['forecast']['forecastday'][0]['day']['condition']
-          ['Sunny'],
+          ['text'],
     );
   }
 }
