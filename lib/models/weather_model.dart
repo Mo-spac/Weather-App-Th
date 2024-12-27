@@ -28,4 +28,36 @@ class WeatherModel {
           ['text'],
     );
   }
+
+  String getImage() {
+    if (weatherCondition == 'Sunny' ||
+        weatherCondition == 'Clear' ||
+        weatherCondition == 'partly cloudy') {
+      return 'assets/images/clear.png';
+    } else if (weatherCondition == 'Blizzard' ||
+        weatherCondition == 'Patchy snow possible' ||
+        weatherCondition == 'Patchy sleet possible' ||
+        weatherCondition == 'Patchy freezing drizzle possible' ||
+        weatherCondition == 'Blowing snow') {
+      return 'assets/images/snow.png';
+    } else if (weatherCondition == 'Freezing fog' ||
+        weatherCondition == 'Fog' ||
+        weatherCondition == 'Heavy Cloud' ||
+        weatherCondition == 'Mist' ||
+        weatherCondition == 'Fog') {
+      return 'assets/images/cloudy.png';
+    } else if (weatherCondition == 'Patchy rain possible' ||
+        weatherCondition == 'Heavy Rain' ||
+        weatherCondition == 'Showers	') {
+      return 'assets/images/rainy.png';
+    } else if (weatherCondition == 'Thundery outbreaks possible' ||
+        weatherCondition == 'Moderate or heavy snow with thunder' ||
+        weatherCondition == 'Patchy light snow with thunder' ||
+        weatherCondition == 'Moderate or heavy rain with thunder' ||
+        weatherCondition == 'Patchy light rain with thunder') {
+      return 'assets/images/thunderstorm.png';
+    } else {
+      return 'assets/images/clear.png';
+    }
+  }
 }

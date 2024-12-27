@@ -29,7 +29,7 @@ class WeatherInfoBody extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              Image.asset('assets/images/cloudy.png'),
+              Image.asset(weatherModel.getImage()),
               Text(
                 weatherModel.temp.round().toString(),
                 style: TextStyle(
@@ -46,7 +46,7 @@ class WeatherInfoBody extends StatelessWidget {
             ],
           ),
           Text(
-            'Light Rain',
+            weatherModel.weatherCondition,
             style: TextStyle(
               fontSize: 32,
               fontWeight: FontWeight.bold,
