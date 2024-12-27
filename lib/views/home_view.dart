@@ -33,7 +33,9 @@ class HomeView extends StatelessWidget {
           if (state is WeatherInitialState) {
             return NoWeatherBody();
           } else if (state is WeatherLoadedState) {
-            return WeatherInfoBody();
+            return WeatherInfoBody(
+                // weatherModel: state.weatherModel,
+                );
           } else {
             return const Center(
               child: Text('There was an Error'),
