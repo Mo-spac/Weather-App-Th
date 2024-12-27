@@ -21,7 +21,7 @@ class WeatherInfoBody extends StatelessWidget {
         children: [
           CustomName(),
           Text(
-            'updated at : 23 : 46',
+            'updated at ${weatherModel.date.hour} : ${weatherModel.date.minute}',
             style: TextStyle(
               fontSize: 22,
             ),
@@ -31,7 +31,7 @@ class WeatherInfoBody extends StatelessWidget {
             children: [
               Image.asset('assets/images/cloudy.png'),
               Text(
-                '${weatherModel.temp}',
+                weatherModel.temp.round().toString(),
                 style: TextStyle(
                   fontSize: 32,
                   fontWeight: FontWeight.bold,
@@ -39,8 +39,8 @@ class WeatherInfoBody extends StatelessWidget {
               ),
               Column(
                 children: [
-                  Text('maxTemp : 24'),
-                  Text('minTemp :16'),
+                  Text('maxTemp : ${weatherModel.maxTemp.round()}'),
+                  Text('minTemp :${weatherModel.minTemp.round()}'),
                 ],
               ),
             ],
