@@ -12,48 +12,60 @@ class WeatherInfoBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    WeatherModel weatherModel =
+    WeatherModel getweatherCubit =
         BlocProvider.of<GetweatherCubit>(context).weatherModel!;
 
-    return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 10),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          CustomName(),
-          Text(
-            'updated at ${weatherModel.date.hour} : ${weatherModel.date.minute}',
-            style: TextStyle(
-              fontSize: 22,
-            ),
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              Image.asset(weatherModel.getImage()),
-              Text(
-                weatherModel.temp.round().toString(),
-                style: TextStyle(
-                  fontSize: 32,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-              Column(
-                children: [
-                  Text('maxTemp : ${weatherModel.maxTemp.round()}'),
-                  Text('minTemp :${weatherModel.minTemp.round()}'),
-                ],
-              ),
-            ],
-          ),
-          Text(
-            weatherModel.weatherCondition,
-            style: TextStyle(
-              fontSize: 32,
-              fontWeight: FontWeight.bold,
-            ),
-          ),
+    return Container(
+      decoration: BoxDecoration(
+          gradient: LinearGradient(
+        colors: [
+          getweatherCubit.getThemeColor(),
+          getweatherCubit.getThemeColor()[300]!,
+          getweatherCubit.getThemeColor()[50]!,
         ],
+        begin: Alignment.topCenter,
+        end: Alignment.bottomCenter,
+      )),
+      child: Padding(
+        padding: EdgeInsets.symmetric(horizontal: 10),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            CustomName(),
+            Text(
+              'updated at ${getweatherCubit.date.hour} : ${getweatherCubit.date.minute}',
+              style: TextStyle(
+                fontSize: 22,
+              ),
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                Image.asset(getweatherCubit.getImage()),
+                Text(
+                  getweatherCubit.temp.round().toString(),
+                  style: TextStyle(
+                    fontSize: 32,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                Column(
+                  children: [
+                    Text('maxTemp : ${getweatherCubit.maxTemp.round()}'),
+                    Text('minTemp :${getweatherCubit.minTemp.round()}'),
+                  ],
+                ),
+              ],
+            ),
+            Text(
+              getweatherCubit.weatherCondition,
+              style: TextStyle(
+                fontSize: 32,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
