@@ -12,7 +12,7 @@ class HomeView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Weather App'),
+        title: const Text('Weather App'),
         actions: [
           IconButton(
             onPressed: () {
@@ -24,22 +24,23 @@ class HomeView extends StatelessWidget {
                 ),
               );
             },
-            icon: Icon(Icons.search),
+            icon: const Icon(Icons.search),
           ),
         ],
       ),
-      body:
-          BlocBuilder<GetweatherCubit, WeatherState>(builder: (context, state) {
-        if (state is WeatherInitialState) {
-          return NoWeatherBody();
-        } else if (state is WeatherLoadedState) {
-          return WeatherInfoBody();
-        } else {
-          return Center(
-            child: Text('There was an Error'),
-          );
-        }
-      }),
+      body: BlocBuilder<GetweatherCubit, WeatherState>(
+        builder: (context, state) {
+          if (state is WeatherInitialState) {
+            return NoWeatherBody();
+          } else if (state is WeatherLoadedState) {
+            return WeatherInfoBody();
+          } else {
+            return const Center(
+              child: Text('There was an Error'),
+            );
+          }
+        },
+      ),
     );
   }
 }
