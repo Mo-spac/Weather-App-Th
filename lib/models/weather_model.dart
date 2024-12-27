@@ -1,3 +1,5 @@
+import 'package:flutter/material.dart';
+
 class WeatherModel {
   final String cityName;
   final DateTime date;
@@ -58,6 +60,38 @@ class WeatherModel {
       return 'assets/images/thunderstorm.png';
     } else {
       return 'assets/images/clear.png';
+    }
+  }
+
+  MaterialColor getThemeColor() {
+    if (weatherCondition == 'Sunny' ||
+        weatherCondition == 'Clear' ||
+        weatherCondition == 'partly cloudy') {
+      return Colors.amber;
+    } else if (weatherCondition == 'Blizzard' ||
+        weatherCondition == 'Patchy snow possible' ||
+        weatherCondition == 'Patchy sleet possible' ||
+        weatherCondition == 'Patchy freezing drizzle possible' ||
+        weatherCondition == 'Blowing snow') {
+      return Colors.blue;
+    } else if (weatherCondition == 'Freezing fog' ||
+        weatherCondition == 'Fog' ||
+        weatherCondition == 'Heavy Cloud' ||
+        weatherCondition == 'Mist' ||
+        weatherCondition == 'Fog') {
+      return Colors.blueGrey;
+    } else if (weatherCondition == 'Patchy rain possible' ||
+        weatherCondition == 'Heavy Rain' ||
+        weatherCondition == 'Showers	') {
+      return Colors.blue;
+    } else if (weatherCondition == 'Thundery outbreaks possible' ||
+        weatherCondition == 'Moderate or heavy snow with thunder' ||
+        weatherCondition == 'Patchy light snow with thunder' ||
+        weatherCondition == 'Moderate or heavy rain with thunder' ||
+        weatherCondition == 'Patchy light rain with thunder') {
+      return Colors.deepPurple;
+    } else {
+      return Colors.red;
     }
   }
 }
